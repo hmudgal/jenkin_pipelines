@@ -1,9 +1,18 @@
 pipeline{
-	agent any
+	agent none
 	stages{
-		stage('Stage 1'){
+		stage('Build'){
+			agent {
+				node{
+					label 'builder'
+				}
+			}
 			steps{
-				echo 'Hello World from SCM !'
+				dir('subDir'){
+					checkout scm
+					echo 'Building the Jenkin Application!'
+					stash(name: 'app', includes: 'outputs')
+				}	
 			}
 		}
 	}
