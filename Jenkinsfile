@@ -3,7 +3,7 @@ pipeline{
 	stages{
 		stage('Build'){
 			steps{
-				dir('subDir'){
+				dir('D:\software\jenkin\checkout'){
 					checkout scm
 					echo 'Building the Jenkin Application!'
 					stash(name: 'app', includes: 'outputs')
