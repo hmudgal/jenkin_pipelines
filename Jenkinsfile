@@ -6,7 +6,11 @@ pipeline{
 				dir('D:\\software\\jenkin\\checkout'){
 					checkout scm
 					echo 'Building the Jenkin Application!'
-					stash(name: 'app', includes: 'outputs')
+				}	
+			}
+			steps{
+				bat 'make' 
+                archiveArtifacts artifacts: 'D:\\software\\jenkin\\target\\*.jar', fingerprint: true
 				}	
 			}
 		}
