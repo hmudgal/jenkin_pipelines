@@ -1,12 +1,7 @@
 pipeline{
-	agent none
+	agent any
 	stages{
 		stage('Build'){
-			agent {
-				node{
-					label 'builder'
-				}
-			}
 			steps{
 				dir('subDir'){
 					checkout scm
