@@ -11,8 +11,7 @@ pipeline{
 			steps{
 				bat 'make' 
                 archiveArtifacts artifacts: 'D:\\software\\jenkin\\target\\*.jar', fingerprint: true
-				}	
-			}
+			}	
 		}
 	}
 }
